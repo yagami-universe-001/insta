@@ -24,7 +24,6 @@ def spotify_link_handler(message):
 def post_or_reel_link_handler(message):
     try:
         log(f"{bot_username} log:\n\nuser:\n{message.chat.id}\n\n✅ message text:\n{message.text}")
-        guide_msg_1 = bot.send_message(message.chat.id, "Ok wait a few moments...")
         post_shortcode = get_post_or_reel_shortcode_from_link(message.text)
         print(post_shortcode)
 
@@ -81,13 +80,8 @@ def post_or_reel_link_handler(message):
                 print(chunk)
                 bot.send_media_group(message.chat.id, chunk)
         bot.send_message(message.chat.id, end_msg, parse_mode="Markdown", disable_web_page_preview=True)
-        try_to_delete_message(message.chat.id, guide_msg_1.message_id)
         return
     except Exception as e:
-        try:
-            try_to_delete_message(message.chat.id, guide_msg_1.message_id)
-        except:
-            pass
         log(f"{bot_username} log:\n\nuser: {message.chat.id}\n\n🛑 error in main body: {str(e)}")
         bot.send_message(message.chat.id, fail_msg, parse_mode="Markdown", disable_web_page_preview=True)
         # import traceback
