@@ -19,14 +19,14 @@ import urllib.parse
 load_dotenv()
 
 # env variables
-bot_token = os.getenv('BEST_INSTAGRAM_DOWNLOADER_BOT_API')
-log_channel_id = os.getenv('INSTAGRAM_DOWNLOADER_LOG_CHANNEL_ID') # set to False if not needed
+bot_token = os.getenv('8480869830:AAG260lNSmo0Yp1OCaVdNaLum5AkWSjLMo8')
+log_channel_id = os.getenv('-1003081386721') # set to False if not needed
 
 # initialize bot
 bot = telebot.TeleBot(bot_token)
 
 # settings
-bot_username = "@Best_Instagram_Downloader_Bot"
+bot_username = "@Yagami_here_robot"
 caption_trail = "\n\n\n" + bot_username
 session_file_name = "session" # any name change should apply to .gitignore too
 
